@@ -1,0 +1,22 @@
+connector:
+  name: gitConnector
+  identifier: gitConnector
+  description:
+  orgIdentifier: testpiyush
+  projectIdentifier: VikasNgGitSync4
+  type: Github
+  spec:
+    url: https://github.com/VikasChowdary/gitSync4
+    authentication:
+      type: Http
+      spec:
+        type: UsernameToken
+        spec:
+          username: VikasChowdary
+          tokenRef: patGithub
+    apiAccess:
+      type: Token
+      spec:
+        tokenRef: patGithub
+    executeOnDelegate: false
+    type: Repo
