@@ -28,3 +28,32 @@ pipeline:
                       spec:
                           connectorRef: <+input>
                           namespace: default
+        - stage:
+              name: testName
+              identifier: testName
+              type: CI
+              spec:
+                  cloneCodebase: true
+                  infrastructure:
+                      type: KubernetesDirect
+                      spec:
+                          connectorRef: <+input>
+                          namespace: <+input>
+                          automountServiceAccountToken: true
+                          nodeSelector: {}
+                  execution:
+                      steps:
+                          - step:
+                                type: ArtifactoryUpload
+                                name: test
+                                identifier: test
+                                spec:
+                                    connectorRef: testC
+                                    target: <+input>
+                                    sourcePath: <+input>
+                                failureStrategies: []
+    properties:
+        ci:
+            codebase:
+                connectorRef: gitConnector
+                build: <+input>
