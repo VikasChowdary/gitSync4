@@ -1,0 +1,11 @@
+connector:
+  name: testC
+  identifier: testC
+  description:
+  orgIdentifier: testpiyush
+  projectIdentifier: VikasNgGitSync4
+  type: Artifactory
+  spec:
+    artifactoryServerUrl: https://temp.com
+    auth:
+      type: Anonymous
